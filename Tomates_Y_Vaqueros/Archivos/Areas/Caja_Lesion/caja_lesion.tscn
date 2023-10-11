@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjbswrb76hbf"]
+
+[sub_resource type="GDScript" id="GDScript_84ryj"]
+script/source = "extends Area2D
+
+
+var Individuo = null
+
+
+func Puede_Ver_Orfeo():
+	
+	return Individuo != null
+	
+	
+func _on_body_entered(body):
+	Individuo = body
+	
+	
+func _on_body_exited(_body):
+	Individuo = null
+"
+
+[node name="caja_lesion" type="Area2D"]
+script = SubResource("GDScript_84ryj")
+
+[node name="Lesion_CS" type="CollisionShape2D" parent="."]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3f1hjolpdag6"]
+
+[ext_resource type="Script" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Puntuacion/menu_puntuación.gd" id="1_6vdtg"]
+[ext_resource type="FontFile" uid="uid://c3udfe20h857e" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western.otf" id="1_pgyqi"]
+[ext_resource type="Texture2D" uid="uid://bv786wcyk480x" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Puntuacion/menu_puntuacion.png" id="2_m3n4f"]
+[ext_resource type="PackedScene" uid="uid://croeaquwf2i8i" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Puntuacion/puntaje.tscn" id="2_wvqmo"]
+
+[node name="menu_puntuación" type="CanvasLayer"]
+script = ExtResource("1_6vdtg")
+metadata/_edit_vertical_guides_ = [80.0]
+metadata/_edit_horizontal_guides_ = [33.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_m3n4f")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Titulos" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Nombre" type="Label" parent="Titulos"]
+modulate = Color(1, 0.341176, 0.827451, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 18.0
+offset_right = 65.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Nombre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nivel" type="Label" parent="Titulos"]
+modulate = Color(1, 0.341176, 0.827451, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 73.0
+offset_top = 18.0
+offset_right = 123.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Nivel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tiempo_Restante" type="Label" parent="Titulos"]
+modulate = Color(1, 0.341176, 0.827451, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 131.0
+offset_top = 15.0
+offset_right = 181.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 10
+text = "Tiempo
+Restante"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Niveles_Completados" type="Label" parent="Titulos"]
+modulate = Color(1, 0.341176, 0.827451, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 189.0
+offset_top = 15.0
+offset_right = 239.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 10
+text = "Niveles
+Completados"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Puntaje" type="Label" parent="Titulos"]
+modulate = Color(1, 0.341176, 0.827451, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 251.0
+offset_top = 18.0
+offset_right = 301.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Puntaje"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="puntaje_1" parent="." instance=ExtResource("2_wvqmo")]
+
+[node name="L_1" parent="puntaje_1/Nombre" index="0"]
+text = "Y"
+
+[node name="L_2" parent="puntaje_1/Nombre" index="1"]
+text = "J"
+
+[node name="L_3" parent="puntaje_1/Nombre" index="2"]
+text = "O"
+
+[node name="puntaje_2" parent="." instance=ExtResource("2_wvqmo")]
+offset_top = 21.0
+offset_bottom = 21.0
+
+[node name="L_1" parent="puntaje_2/Nombre" index="0"]
+text = "S"
+
+[node name="L_2" parent="puntaje_2/Nombre" index="1"]
+text = "E"
+
+[node name="L_3" parent="puntaje_2/Nombre" index="2"]
+text = "E"
+
+[node name="puntaje_3" parent="." instance=ExtResource("2_wvqmo")]
+offset_top = 42.0
+offset_bottom = 42.0
+
+[node name="L_1" parent="puntaje_3/Nombre" index="0"]
+text = "C"
+
+[node name="L_3" parent="puntaje_3/Nombre" index="2"]
+text = "E"
+
+[node name="puntaje_4" parent="." instance=ExtResource("2_wvqmo")]
+offset_top = 63.0
+offset_bottom = 63.0
+
+[node name="L_1" parent="puntaje_4/Nombre" index="0"]
+text = "K"
+
+[node name="L_2" parent="puntaje_4/Nombre" index="1"]
+text = "G"
+
+[node name="L_3" parent="puntaje_4/Nombre" index="2"]
+text = "O"
+
+[node name="puntaje_5" parent="." instance=ExtResource("2_wvqmo")]
+offset_top = 84.0
+offset_bottom = 84.0
+
+[node name="L_1" parent="puntaje_5/Nombre" index="0"]
+text = "C"
+
+[node name="L_2" parent="puntaje_5/Nombre" index="1"]
+text = "G"
+
+[node name="L_3" parent="puntaje_5/Nombre" index="2"]
+text = "O"
+
+[node name="Botones_RS" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Reintentar" type="Button" parent="Botones_RS"]
+modulate = Color(0, 0.580392, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 156.0
+offset_right = 130.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Reintentar"
+flat = true
+
+[node name="Salir" type="Button" parent="Botones_RS"]
+modulate = Color(0, 0.580392, 1, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 190.0
+offset_top = 156.0
+offset_right = 240.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Salir"
+flat = true
+
+[node name="Regresar" type="Button" parent="."]
+modulate = Color(0, 0.580392, 1, 1)
+texture_filter = 1
+offset_left = 135.0
+offset_top = 156.0
+offset_right = 185.0
+offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("1_pgyqi")
+theme_override_font_sizes/font_size = 15
+text = "Regresar"
+flat = true
+
+[connection signal="button_down" from="Botones_RS/Reintentar" to="." method="_on_reintentar_button_down"]
+[connection signal="button_down" from="Botones_RS/Salir" to="." method="_on_salir_button_down"]
+[connection signal="button_down" from="Regresar" to="." method="_on_regresar_button_down"]
+
+[editable path="puntaje_1"]
+[editable path="puntaje_2"]
+[editable path="puntaje_3"]
+[editable path="puntaje_4"]
+[editable path="puntaje_5"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8xirk4mpyt6r"]
+
+[ext_resource type="Texture2D" uid="uid://olvdmv6vfieg" path="res://Archivos/Interfaz_Usuario/Sombrero_Vida.png" id="1_tx3ek"]
+[ext_resource type="Script" path="res://Archivos/Interfaz_Usuario/interfaz_usuario.gd" id="1_ujutn"]
+[ext_resource type="Texture2D" uid="uid://crocdc86rjgod" path="res://Archivos/Interfaz_Usuario/Arma.png" id="2_ctkob"]
+[ext_resource type="FontFile" uid="uid://c3udfe20h857e" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western.otf" id="4_n6a4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1qdw"]
+texture = ExtResource("2_ctkob")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ouhp2"]
+texture = ExtResource("2_ctkob")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4y7y8"]
+texture = ExtResource("1_tx3ek")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jtxr"]
+texture = ExtResource("1_tx3ek")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="interfaz_usuario" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujutn")
+metadata/_edit_vertical_guides_ = [160.0]
+metadata/_edit_horizontal_guides_ = [-19.0]
+
+[node name="Arma_Poder" type="ProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxTexture_h1qdw")
+theme_override_styles/fill = SubResource("StyleBoxTexture_ouhp2")
+max_value = 10.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[node name="Vaciar" type="Timer" parent="Arma_Poder"]
+
+[node name="Sombrero_Vida" type="ProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 14.0
+scale = Vector2(0.6, 0.6)
+theme_override_styles/background = SubResource("StyleBoxTexture_4y7y8")
+theme_override_styles/fill = SubResource("StyleBoxTexture_8jtxr")
+max_value = 5.0
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[node name="Tiempo" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 141.0
+offset_top = 2.0
+offset_right = 179.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("4_n6a4r")
+theme_override_font_sizes/font_size = 15
+text = "05:00"
+horizontal_alignment = 1
+
+[node name="Cronometro" type="Timer" parent="Tiempo"]
+
+[node name="Puntaje" type="Label" parent="."]
+modulate = Color(0.152941, 0.152941, 0.152941, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 272.0
+offset_top = 2.0
+offset_right = 319.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("4_n6a4r")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 2
+
+[connection signal="timeout" from="Arma_Poder/Vaciar" to="." method="_on_vaciar_timeout"]
+[connection signal="timeout" from="Tiempo/Cronometro" to="." method="_on_cronometro_timeout"]

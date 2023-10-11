@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pptftnowt05p"
+path="res://.godot/imported/The Attack Of Killer Tomatoes.wav-c8aacde9e238be80ac7dceff1a4c7ab2.sample"
+
+[deps]
+
+source_file="res://Archivos/Musica/Canciones/The Attack Of Killer Tomatoes.wav"
+dest_files=["res://.godot/imported/The Attack Of Killer Tomatoes.wav-c8aacde9e238be80ac7dceff1a4c7ab2.sample"]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

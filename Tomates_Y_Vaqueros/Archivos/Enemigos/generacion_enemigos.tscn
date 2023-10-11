@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b318t1p1vfv33"]
+
+[ext_resource type="Script" path="res://Archivos/Enemigos/generacion_enemigos.gd" id="1_mki71"]
+
+[node name="generacion_enemigos" type="Node2D"]
+script = ExtResource("1_mki71")
+area_aparicion = Rect2(160, 90, 10, 10)

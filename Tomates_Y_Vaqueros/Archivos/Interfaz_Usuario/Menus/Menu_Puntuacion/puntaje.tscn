@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=3 uid="uid://croeaquwf2i8i"]
+
+[ext_resource type="Script" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Puntuacion/puntaje.gd" id="1_x85nx"]
+[ext_resource type="FontFile" uid="uid://c3udfe20h857e" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western.otf" id="2_tcp71"]
+
+[node name="puntaje" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x85nx")
+metadata/_edit_vertical_guides_ = [-32.0]
+metadata/_edit_horizontal_guides_ = [45.0]
+
+[node name="Nombre" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 45.0
+offset_right = 65.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L_1" type="Label" parent="Nombre"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = 2.0
+offset_right = 23.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L_2" type="Label" parent="Nombre"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 23.0
+offset_top = 2.0
+offset_right = 28.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L_3" type="Label" parent="Nombre"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 29.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Visible" type="Timer" parent="Nombre"]
+wait_time = 0.2
+
+[node name="Invisible" type="Timer" parent="Nombre"]
+wait_time = 0.2
+
+[node name="Nivel" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 73.0
+offset_top = 45.0
+offset_right = 123.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tiempo_Restante" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 131.0
+offset_top = 45.0
+offset_right = 181.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Niveles_Completados" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 189.0
+offset_top = 45.0
+offset_right = 239.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Puntaje" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 251.0
+offset_top = 45.0
+offset_right = 301.0
+offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("2_tcp71")
+theme_override_font_sizes/font_size = 10
+text = "00000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Nombre/Visible" to="." method="_on_visible_timeout"]
+[connection signal="timeout" from="Nombre/Invisible" to="." method="_on_invisible_timeout"]

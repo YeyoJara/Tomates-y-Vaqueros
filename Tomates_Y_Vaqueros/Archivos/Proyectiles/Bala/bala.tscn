@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckddxamxpc7ff"]
+
+[ext_resource type="Script" path="res://Archivos/Proyectiles/Bala/bala.gd" id="1_5gwql"]
+[ext_resource type="Texture2D" uid="uid://b3ahokuf0707" path="res://Archivos/Proyectiles/Bala/Bala.png" id="1_7oqyo"]
+[ext_resource type="PackedScene" uid="uid://cjbswrb76hbf" path="res://Archivos/Areas/Caja_Lesion/caja_lesion.tscn" id="3_18vvp"]
+[ext_resource type="AudioStream" uid="uid://cjgveotto1rek" path="res://Archivos/Musica/Efectos/bala_salir.wav" id="4_qo1lk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8vw0"]
+atlas = ExtResource("1_7oqyo")
+region = Rect2(0, 0, 4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmhgo"]
+atlas = ExtResource("1_7oqyo")
+region = Rect2(4, 0, 4, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft2rx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8vw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmhgo")
+}],
+"loop": true,
+"name": &"Bala",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_euyxo"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mrc4f"]
+radius = 2.23607
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2elp"]
+
+[node name="bala" type="CharacterBody2D"]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("1_5gwql")
+
+[node name="Bala_AS" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ft2rx")
+animation = &"Bala"
+autoplay = "Bala"
+frame_progress = 0.195218
+
+[node name="Bala_CS" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_euyxo")
+
+[node name="Areas" type="Area2D" parent="."]
+
+[node name="Herir" parent="Areas" instance=ExtResource("3_18vvp")]
+visible = false
+collision_layer = 8
+collision_mask = 16
+
+[node name="Lesion_CS" parent="Areas/Herir" index="0"]
+shape = SubResource("CircleShape2D_mrc4f")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="Desaparecer" parent="Areas" instance=ExtResource("3_18vvp")]
+collision_layer = 0
+
+[node name="Lesion_CS" parent="Areas/Desaparecer" index="0"]
+shape = SubResource("CircleShape2D_l2elp")
+debug_color = Color(0.996078, 0.0509804, 0, 0.419608)
+
+[node name="Sonido_Disparar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qo1lk")
+autoplay = true
+
+[connection signal="body_entered" from="Areas/Desaparecer" to="." method="_on_desaparecer_body_entered"]
+
+[editable path="Areas/Herir"]
+[editable path="Areas/Desaparecer"]

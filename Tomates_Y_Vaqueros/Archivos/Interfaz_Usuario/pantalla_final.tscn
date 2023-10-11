@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqh7kml3ay77a"]
+
+[ext_resource type="Texture2D" uid="uid://bmx24g8ioo5xp" path="res://Archivos/Interfaz_Usuario/pantalla_final.png" id="1_ffe40"]
+[ext_resource type="FontFile" uid="uid://dlygdoxc4kulq" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western Italic.otf" id="2_bp7k2"]
+[ext_resource type="Script" path="res://Archivos/Interfaz_Usuario/pantalla_final.gd" id="2_ktaq0"]
+[ext_resource type="FontFile" uid="uid://c3udfe20h857e" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western.otf" id="3_k8t55"]
+
+[node name="pantalla_final" type="TextureRect"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ffe40")
+script = ExtResource("2_ktaq0")
+
+[node name="Despedida" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 13.0
+offset_right = 193.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("2_bp7k2")
+theme_override_font_sizes/font_size = 40
+text = "¡Eso es todo 
+amigos!"
+horizontal_alignment = 1
+
+[node name="Creditos" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 130.0
+offset_right = 73.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("3_k8t55")
+theme_override_font_sizes/font_size = 20
+text = "Creado por:"
+
+[node name="Nombre" type="Label" parent="Creditos"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 37.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_k8t55")
+theme_override_font_sizes/font_size = 15
+text = "Yeferson Jaramillo"
+
+[node name="Volver_Inicio" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Volver_Inicio" to="." method="_on_volver_inicio_timeout"]

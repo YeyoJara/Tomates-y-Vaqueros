@@ -1,0 +1,298 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnwngj6lr0ivd"]
+
+[ext_resource type="Script" path="res://Archivos/Mundo/Escenario_1/escenario_1.gd" id="1_gsd7a"]
+[ext_resource type="PackedScene" uid="uid://c8xirk4mpyt6r" path="res://Archivos/Interfaz_Usuario/interfaz_usuario.tscn" id="2_d56kn"]
+[ext_resource type="PackedScene" uid="uid://c7xkno5bp27eg" path="res://Archivos/Vaquero/vaquero.tscn" id="3_4hfps"]
+[ext_resource type="Texture2D" uid="uid://cupyo5lfxlucl" path="res://Archivos/Mundo/Escenario_1/Enrredadera_Tomates.png" id="4_v5fcw"]
+[ext_resource type="PackedScene" uid="uid://b318t1p1vfv33" path="res://Archivos/Enemigos/generacion_enemigos.tscn" id="5_iqwh5"]
+[ext_resource type="Texture2D" uid="uid://b3om5umd8mw8v" path="res://Archivos/Mundo/Escenario_1/Tierra_Fondo.png" id="6_5btse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej3p0"]
+size = Vector2(144, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca630"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwn6q"]
+size = Vector2(16, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsqhv"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uybfd"]
+size = Vector2(35, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu24e"]
+size = Vector2(10, 34)
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource("1_gsd7a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="interfaz_usuario" parent="CanvasLayer" instance=ExtResource("2_d56kn")]
+
+[node name="Vaquero" parent="." instance=ExtResource("3_4hfps")]
+position = Vector2(160, 90)
+
+[node name="Enrredaderas" type="Node2D" parent="."]
+
+[node name="E_Abajo" type="Node2D" parent="Enrredaderas"]
+position = Vector2(0, 180)
+
+[node name="E_Abajo_D" type="TextureRect" parent="Enrredaderas/E_Abajo"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = 176.0
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Abajo/E_Abajo_D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Abajo/E_Abajo_D/Area_EA"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_ej3p0")
+
+[node name="E_Abajo_I" type="TextureRect" parent="Enrredaderas/E_Abajo"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_top = -8.0
+offset_right = 144.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Abajo/E_Abajo_I"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Abajo/E_Abajo_I/Area_EA"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_ej3p0")
+
+[node name="E_Abajo_M" type="TextureRect" parent="Enrredaderas/E_Abajo"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = 144.0
+offset_top = -8.0
+offset_right = 176.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Abajo/E_Abajo_M"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Abajo/E_Abajo_M/Area_EA"]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_ca630")
+
+[node name="E_Arriba" type="Node2D" parent="Enrredaderas"]
+
+[node name="E_Arriba_D" type="TextureRect" parent="Enrredaderas/E_Arriba"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = 176.0
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Arriba/E_Arriba_D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Arriba/E_Arriba_D/Area_EA"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_ej3p0")
+
+[node name="E_Arriba_I" type="TextureRect" parent="Enrredaderas/E_Arriba"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_top = -8.0
+offset_right = 144.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Arriba/E_Arriba_I"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Arriba/E_Arriba_I/Area_EA"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_ej3p0")
+
+[node name="E_Arriba_M" type="TextureRect" parent="Enrredaderas/E_Arriba"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = 144.0
+offset_top = -8.0
+offset_right = 176.0
+offset_bottom = 8.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Arriba/E_Arriba_M"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Arriba/E_Arriba_M/Area_EA"]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_ca630")
+
+[node name="E_Derecha" type="Node2D" parent="Enrredaderas"]
+position = Vector2(320, 0)
+
+[node name="E_Derecha_Ab" type="TextureRect" parent="Enrredaderas/E_Derecha"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_top = 106.0
+offset_right = 8.0
+offset_bottom = 180.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Derecha/E_Derecha_Ab"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Derecha/E_Derecha_Ab/Area_EA"]
+position = Vector2(8, 37)
+shape = SubResource("RectangleShape2D_qwn6q")
+
+[node name="E_Derecha_Ar" type="TextureRect" parent="Enrredaderas/E_Derecha"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 74.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Derecha/E_Derecha_Ar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Derecha/E_Derecha_Ar/Area_EA"]
+position = Vector2(8, 37)
+shape = SubResource("RectangleShape2D_qwn6q")
+
+[node name="E_Derecha_M" type="TextureRect" parent="Enrredaderas/E_Derecha"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_top = 74.0
+offset_right = 8.0
+offset_bottom = 106.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Derecha/E_Derecha_M"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Derecha/E_Derecha_M/Area_EA"]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_bsqhv")
+
+[node name="E_Izquierda" type="Node2D" parent="Enrredaderas"]
+
+[node name="E_Izquierda_Ab" type="TextureRect" parent="Enrredaderas/E_Izquierda"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_top = 106.0
+offset_right = 8.0
+offset_bottom = 180.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_Ab"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_Ab/Area_EA"]
+position = Vector2(8, 37)
+shape = SubResource("RectangleShape2D_qwn6q")
+
+[node name="E_Izquierda_Ar" type="TextureRect" parent="Enrredaderas/E_Izquierda"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 74.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_Ar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_Ar/Area_EA"]
+position = Vector2(8, 37)
+shape = SubResource("RectangleShape2D_qwn6q")
+
+[node name="E_Izquierda_M" type="TextureRect" parent="Enrredaderas/E_Izquierda"]
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+texture_filter = 1
+offset_left = -8.0
+offset_top = 74.0
+offset_right = 8.0
+offset_bottom = 106.0
+texture = ExtResource("4_v5fcw")
+stretch_mode = 1
+
+[node name="Area_EA" type="StaticBody2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_M"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enrredaderas/E_Izquierda/E_Izquierda_M/Area_EA"]
+position = Vector2(8, 16)
+shape = SubResource("RectangleShape2D_bsqhv")
+
+[node name="Puertas" type="Node2D" parent="."]
+
+[node name="Abajo" type="Area2D" parent="Puertas"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Abajo"]
+position = Vector2(159.5, 183)
+shape = SubResource("RectangleShape2D_uybfd")
+
+[node name="Arriba" type="Area2D" parent="Puertas"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Arriba"]
+position = Vector2(159.5, -2.5)
+shape = SubResource("RectangleShape2D_uybfd")
+
+[node name="Derecha" type="Area2D" parent="Puertas"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Derecha"]
+position = Vector2(323, 90)
+shape = SubResource("RectangleShape2D_wu24e")
+
+[node name="Izquierda" type="Area2D" parent="Puertas"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Puertas/Izquierda"]
+position = Vector2(-3, 90)
+shape = SubResource("RectangleShape2D_wu24e")
+
+[node name="Generación_Enemigos" type="Node" parent="."]
+
+[node name="GE_Abajo" parent="Generación_Enemigos" instance=ExtResource("5_iqwh5")]
+position = Vector2(0, 180)
+area_aparicion = Rect2(0, 0, 320, 10)
+
+[node name="GE_Arriba" parent="Generación_Enemigos" instance=ExtResource("5_iqwh5")]
+area_aparicion = Rect2(0, 0, 320, -10)
+
+[node name="GE_Derecha" parent="Generación_Enemigos" instance=ExtResource("5_iqwh5")]
+area_aparicion = Rect2(0, 0, -10, 180)
+
+[node name="GE_Izquierda" parent="Generación_Enemigos" instance=ExtResource("5_iqwh5")]
+position = Vector2(320, 0)
+area_aparicion = Rect2(0, 0, 10, 180)
+
+[node name="GE_Reinicio" type="Timer" parent="Generación_Enemigos"]
+wait_time = 3.0
+
+[node name="Fondo" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("6_5btse")
+stretch_mode = 1
+
+[connection signal="body_entered" from="Puertas/Abajo" to="." method="_on_abajo_body_entered"]
+[connection signal="body_entered" from="Puertas/Arriba" to="." method="_on_arriba_body_entered"]
+[connection signal="body_entered" from="Puertas/Derecha" to="." method="_on_derecha_body_entered"]
+[connection signal="body_entered" from="Puertas/Izquierda" to="." method="_on_izquierda_body_entered"]
+[connection signal="timeout" from="Generación_Enemigos/GE_Reinicio" to="." method="_on_ge_reinicio_timeout"]

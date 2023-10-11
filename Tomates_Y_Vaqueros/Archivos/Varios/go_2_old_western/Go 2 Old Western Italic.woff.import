@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://dusooeqldwqam"
+path="res://.godot/imported/Go 2 Old Western Italic.woff-292570eee4b0d6492feaaf13f9f9207e.fontdata"
+
+[deps]
+
+source_file="res://Archivos/Varios/go_2_old_western/Go 2 Old Western Italic.woff"
+dest_files=["res://.godot/imported/Go 2 Old Western Italic.woff-292570eee4b0d6492feaaf13f9f9207e.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

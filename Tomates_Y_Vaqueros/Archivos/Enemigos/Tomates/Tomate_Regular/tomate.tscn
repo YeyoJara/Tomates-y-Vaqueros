@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://cvr4eln0lywvi"]
+
+[ext_resource type="Texture2D" uid="uid://bjwn0kym7x7fs" path="res://Archivos/Enemigos/Tomates/Tomate_Regular/Tomate.png" id="1_c0tf7"]
+[ext_resource type="Script" path="res://Archivos/Enemigos/Tomates/Tomate_Regular/tomate.gd" id="1_h2v2b"]
+[ext_resource type="PackedScene" uid="uid://cjbswrb76hbf" path="res://Archivos/Areas/Caja_Lesion/caja_lesion.tscn" id="3_ocag7"]
+[ext_resource type="PackedScene" uid="uid://dg5vbw04ao7ox" path="res://Archivos/Areas/Zona_Detectar/zona_dectectar.tscn" id="4_ccr0l"]
+
+[sub_resource type="Animation" id="Animation_ivbgx"]
+resource_name = "Movimiento"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tomate_S:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nkd45"]
+_data = {
+"Movimiento": SubResource("Animation_ivbgx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv45l"]
+radius = 7.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ncn5"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edw1l"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj18t"]
+size = Vector2(800, 600)
+
+[node name="tomate" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 4
+collision_mask = 2
+platform_on_leave = 2
+script = ExtResource("1_h2v2b")
+
+[node name="Tomate_S" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_c0tf7")
+hframes = 4
+
+[node name="Tomate_AP" type="AnimationPlayer" parent="."]
+autoplay = "Movimiento"
+libraries = {
+"": SubResource("AnimationLibrary_nkd45")
+}
+
+[node name="Tomate_CS" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pv45l")
+
+[node name="Areas" type="Area2D" parent="."]
+
+[node name="Herir" parent="Areas" instance=ExtResource("3_ocag7")]
+visible = false
+collision_layer = 32
+collision_mask = 0
+
+[node name="Lesion_CS" parent="Areas/Herir" index="0"]
+shape = SubResource("CircleShape2D_5ncn5")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="Lesion" parent="Areas" instance=ExtResource("3_ocag7")]
+visible = false
+collision_layer = 16
+collision_mask = 8
+
+[node name="Lesion_CS" parent="Areas/Lesion" index="0"]
+shape = SubResource("CircleShape2D_edw1l")
+debug_color = Color(1, 0, 0.109804, 0.419608)
+
+[node name="Detectar" parent="Areas" instance=ExtResource("4_ccr0l")]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Detectar_CS" parent="Areas/Detectar" index="0"]
+shape = SubResource("RectangleShape2D_mj18t")
+debug_color = Color(0.34902, 0.482353, 1, 0.419608)
+
+[connection signal="area_entered" from="Areas/Lesion" to="." method="_on_lesion_area_entered"]
+
+[editable path="Areas/Herir"]
+[editable path="Areas/Lesion"]
+[editable path="Areas/Detectar"]

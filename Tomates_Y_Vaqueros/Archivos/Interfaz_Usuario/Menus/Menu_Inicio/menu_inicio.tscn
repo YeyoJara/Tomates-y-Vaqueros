@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://df8s0cdw7glh2"]
+
+[ext_resource type="FontFile" uid="uid://c3udfe20h857e" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western.otf" id="1_7q0qd"]
+[ext_resource type="Script" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Inicio/menu_inicio.gd" id="1_unlhc"]
+[ext_resource type="Texture2D" uid="uid://5o5jjauwo1su" path="res://Archivos/Interfaz_Usuario/Menus/Menu_Inicio/menu_inicio.png" id="2_v2pb4"]
+[ext_resource type="FontFile" uid="uid://dusooeqldwqam" path="res://Archivos/Varios/go_2_old_western/Go 2 Old Western Italic.woff" id="3_w3ql0"]
+
+[node name="Menu_Inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_unlhc")
+metadata/_edit_vertical_guides_ = [20.0]
+metadata/_edit_horizontal_guides_ = [20.0, -31.0, 160.0, 68.0, 92.0, 102.0, 126.0, 136.0, 58.0]
+
+[node name="Fondo" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_v2pb4")
+
+[node name="Titulo" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 168.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("3_w3ql0")
+theme_override_font_sizes/font_size = 25
+text = "Tomates y
+Vaqueros"
+horizontal_alignment = 1
+
+[node name="Cronometro" type="Timer" parent="Titulo"]
+wait_time = 0.2
+
+[node name="Botones" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inicio" type="Button" parent="Botones"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 69.0
+offset_right = 72.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("1_7q0qd")
+theme_override_font_sizes/font_size = 15
+text = "Inicio"
+flat = true
+
+[node name="Historicos" type="Button" parent="Botones"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 103.0
+offset_right = 72.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("1_7q0qd")
+theme_override_font_sizes/font_size = 15
+text = "Historicos"
+flat = true
+
+[node name="Salir" type="Button" parent="Botones"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 137.0
+offset_right = 72.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("1_7q0qd")
+theme_override_font_sizes/font_size = 15
+text = "Salir"
+flat = true
+
+[connection signal="timeout" from="Titulo/Cronometro" to="." method="_on_cronometro_timeout"]
+[connection signal="button_down" from="Botones/Inicio" to="." method="_on_inicio_button_down"]
+[connection signal="button_down" from="Botones/Historicos" to="." method="_on_historicos_button_down"]
+[connection signal="button_down" from="Botones/Salir" to="." method="_on_salir_button_down"]

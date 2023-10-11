@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg5vbw04ao7ox"]
+
+[ext_resource type="Script" path="res://Archivos/Areas/Zona_Detectar/zona_dectectar.gd" id="1_wtpwm"]
+
+[node name="zona_dectectar" type="Area2D"]
+script = ExtResource("1_wtpwm")
+
+[node name="Detectar_CS" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

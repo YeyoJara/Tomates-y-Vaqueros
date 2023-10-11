@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpg43hue8hmot"]
+
+[ext_resource type="Texture2D" uid="uid://y3285eaweu3g" path="res://Archivos/Recogibles/Ketchup/Ketchup.png" id="1_27q1p"]
+[ext_resource type="Script" path="res://Archivos/Recogibles/Ketchup/ketchup.gd" id="1_w4mvo"]
+
+[sub_resource type="Animation" id="Animation_6t75p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f6d5o"]
+resource_name = "Tiempo_Vida"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p3b0y"]
+_data = {
+"RESET": SubResource("Animation_6t75p"),
+"Tiempo_Vida": SubResource("Animation_f6d5o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8whd"]
+size = Vector2(10, 11)
+
+[node name="ketchup" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w4mvo")
+
+[node name="Ketchup_S" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_27q1p")
+
+[node name="Ketchup_AP" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Ketchup_S")
+autoplay = "Tiempo_Vida"
+libraries = {
+"": SubResource("AnimationLibrary_p3b0y")
+}
+
+[node name="Ketchup_CS" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f8whd")
+debug_color = Color(0.294118, 0.498039, 1, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

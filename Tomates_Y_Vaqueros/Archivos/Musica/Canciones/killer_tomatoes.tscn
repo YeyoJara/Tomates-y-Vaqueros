@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blfd35ckggwng"]
+
+[ext_resource type="AudioStream" uid="uid://pptftnowt05p" path="res://Archivos/Musica/Canciones/The Attack Of Killer Tomatoes.wav" id="1_1uuju"]
+
+[node name="Killer_Tomatoes" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1uuju")
+volume_db = -10.0
+autoplay = true

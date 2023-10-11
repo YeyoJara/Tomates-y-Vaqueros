@@ -1,0 +1,208 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7xkno5bp27eg"]
+
+[ext_resource type="Script" path="res://Archivos/Vaquero/vaquero.gd" id="1_5n4ma"]
+[ext_resource type="Texture2D" uid="uid://w7mxw0w3jbd3" path="res://Archivos/Vaquero/Vaquero.png" id="1_qo0ti"]
+[ext_resource type="PackedScene" uid="uid://cjbswrb76hbf" path="res://Archivos/Areas/Caja_Lesion/caja_lesion.tscn" id="3_gykxh"]
+[ext_resource type="AudioStream" uid="uid://bhyv0qjbostrm" path="res://Archivos/Musica/Efectos/morir.wav" id="4_g8u6q"]
+
+[sub_resource type="Animation" id="Animation_n43v6"]
+resource_name = "Disparar_Regular"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vaquero_S:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"disparar_derecha"
+}, {
+"args": [],
+"method": &"disparar_izquierda"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bnxwb"]
+resource_name = "Disparar_Rotar"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vaquero_S:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disparar_0d"
+}, {
+"args": [],
+"method": &"disparar_d45"
+}, {
+"args": [],
+"method": &"disparar_90d"
+}, {
+"args": [],
+"method": &"disparar_135d"
+}, {
+"args": [],
+"method": &"disparar_0d"
+}, {
+"args": [],
+"method": &"disparar_d45"
+}, {
+"args": [],
+"method": &"disparar_90d"
+}, {
+"args": [],
+"method": &"disparar_135d"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disparar_i0"
+}, {
+"args": [],
+"method": &"disparar_i45"
+}, {
+"args": [],
+"method": &"disparar_90i"
+}, {
+"args": [],
+"method": &"disparar_135i"
+}, {
+"args": [],
+"method": &"disparar_i0"
+}, {
+"args": [],
+"method": &"disparar_i45"
+}, {
+"args": [],
+"method": &"disparar_90i"
+}, {
+"args": [],
+"method": &"disparar_135i"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v426l"]
+resource_name = "Morir"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Vaquero_S:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpuuy"]
+_data = {
+"Disparar_Regular": SubResource("Animation_n43v6"),
+"Disparar_Rotar": SubResource("Animation_bnxwb"),
+"Morir": SubResource("Animation_v426l")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1cwf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkmtm"]
+radius = 7.0
+
+[node name="Vaquero" type="CharacterBody2D"]
+collision_layer = 2
+platform_on_leave = 2
+script = ExtResource("1_5n4ma")
+
+[node name="Vaquero_S" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qo0ti")
+hframes = 18
+
+[node name="Vaquero_AP" type="AnimationPlayer" parent="."]
+autoplay = "Morir"
+libraries = {
+"": SubResource("AnimationLibrary_vpuuy")
+}
+
+[node name="Vaquero_CS" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_s1cwf")
+
+[node name="Areas" type="Area2D" parent="."]
+
+[node name="Lesion" parent="Areas" instance=ExtResource("3_gykxh")]
+visible = false
+collision_layer = 0
+collision_mask = 32
+
+[node name="Lesion_CS" parent="Areas/Lesion" index="0"]
+shape = SubResource("CircleShape2D_tkmtm")
+debug_color = Color(0.988235, 0, 0.313726, 0.419608)
+
+[node name="Velocidad" type="Timer" parent="."]
+
+[node name="Normal" type="Timer" parent="Velocidad"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Acelerada" type="Timer" parent="Velocidad"]
+wait_time = 15.0
+one_shot = true
+
+[node name="Vaquero_Muerto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g8u6q")
+
+[connection signal="area_entered" from="Areas/Lesion" to="." method="_on_lesion_area_entered"]
+[connection signal="body_entered" from="Areas/Lesion" to="." method="_on_lesion_body_entered"]
+[connection signal="timeout" from="Velocidad/Normal" to="." method="_on_normal_timeout"]
+[connection signal="timeout" from="Velocidad/Acelerada" to="." method="_on_acelerada_timeout"]
+[connection signal="finished" from="Vaquero_Muerto" to="." method="_on_vaquero_muerto_finished"]
+
+[editable path="Areas/Lesion"]
